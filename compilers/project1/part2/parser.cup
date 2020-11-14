@@ -1,0 +1,127 @@
+/* Simple +/-/* expression language; parser evaluates constant expressions on the fly*/
+/**
+ *  Package and Import Specifications
+ */
+import java_cup.runtime.*;
+
+/**
+ *  Usercode Components
+ */
+parser code {:
+    // Connect this parser to a scanner!
+    Scanner s;
+    Parser(Scanner s){ this.s=s; }
+
+    // my code
+    boolean check_main_class=true;
+    boolean check_func_main=true;
+:}
+
+/* define how to connect to the scanner! */
+scan with {: return s.next_token(); :};
+
+/**
+ *  Symbol Lists
+ */
+
+/* Terminals (tokens returned by the scanner). */
+terminal            PLUS, LPAREN, RPAREN, LBRACE, RBRACE, COMMA, IF, ELSE, PREFIX, REVERSE;
+terminal String     STRING_LITERAL;
+terminal String	    IDENTIFIER;
+
+/*  Non terminals */
+non terminal String     goal, produce, function, func_call, args1_level1, args1_level2, args1_level3, args1_level4, main_condition, func_call_for_func_def, args1_for_func_def_level1, args1_for_func_def_level2, args1_for_func_def_level3, args1_for_func_def_level4, func_def, args2, body_level1, body_level2, body_level3, body_condition;
+
+/**
+ *  Precedence Declarations
+ */
+precedence left REVERSE;
+precedence left PLUS;
+precedence left IF, ELSE;
+precedence left IDENTIFIER, STRING_LITERAL;
+
+/**
+ *  The Grammar Rules
+ */
+
+/* Basic rules */
+goal		::= produce {: System.out.println("\t}\n}\n"); :}
+;
+produce		::= produce function
+		  | function
+;
+function	::= func_def:fd {:
+					if(check_main_class)
+						{ System.out.println("import java.lang.*;\n\npublic class Main {\n"); check_main_class=false; }
+					System.out.println(fd);
+				:}
+		  | func_call:fc
+				{:
+					if(check_func_main)
+						{ System.out.println("\tpublic static void main(String[] args) {"); check_func_main=false; }
+					System.out.println("\t\tSystem.out.println("+fc+");");
+				:}
+;
+
+/* Function call in main function */
+func_call			::= IDENTIFIER:i LPAREN args1_level1:l1 RPAREN {: RESULT = i + "(" + l1 + ")"; :} 
+				  | IDENTIFIER:i LPAREN RPAREN {: RESULT = i + "()"; :}
+;
+args1_level1			::= args1_level2:l2 {: RESULT = l2; :}
+				  | args1_level1:l1 COMMA args1_level2:l2 {: RESULT = l1 + "," + l2; :}
+;
+args1_level2			::= args1_level3:l3 {: RESULT = l3; :}
+				  | REVERSE args1_level2:l2 {: RESULT = "new StringBuffer(" + l2 + ").reverse().toString()"; :}
+;
+args1_level3			::= args1_level4:l4 {: RESULT = l4; :}
+				  | args1_level3:l3 PLUS args1_level4:l4 {: RESULT = l3 + "+" + l4; :}
+;
+args1_level4			::= STRING_LITERAL:s {: RESULT = "\""+s+"\""; :}
+				  | IF LPAREN main_condition:c RPAREN args1_level2:l2a ELSE args1_level2:l2b {: RESULT = "(" + c + " ? " + l2a + " : " + l2b + ")"; :}
+				  | func_call:fc {: RESULT = fc; :}
+;
+main_condition			::= args1_level2:l2a PREFIX args1_level2:l2b {: RESULT = "(" + l2b + ")" + ".startsWith(" + l2a + ")"; :}
+;
+
+/* Function call inside a function definition */
+/* If we have a function call inside a function definition ,we can also use identifiers insinde the function call */
+/* Removing identifiers from the func_call rules and creating a seperate func_call_for_func_def rule removes conflicts that would exist if func_call contained identifiers */
+/* So, creating func_call_for_func_def rule is obligatory */
+func_call_for_func_def		::= IDENTIFIER:i LPAREN args1_for_func_def_level1:l1 RPAREN {: RESULT = i + "(" + l1 + ")"; :}
+				  | IDENTIFIER:i LPAREN RPAREN {: RESULT = i +"()"; :}
+;
+args1_for_func_def_level1	::= args1_for_func_def_level2:l2 {: RESULT = l2; :}
+				  | args1_for_func_def_level1:l1 COMMA args1_for_func_def_level2:l2 {: RESULT = l1 + "," + l2; :}
+;
+args1_for_func_def_level2	::= args1_for_func_def_level3:l3 {: RESULT = l3; :}
+				  | REVERSE args1_for_func_def_level2:l2 {: RESULT = "new StringBuffer(" + l2 + ").reverse().toString()"; :}
+;
+args1_for_func_def_level3	::= args1_for_func_def_level4:l4 {: RESULT = l4; :}
+				  | args1_for_func_def_level3:l3 PLUS args1_for_func_def_level4:l4 {: RESULT = l3 + "+" + l4; :}
+;
+args1_for_func_def_level4	::= IDENTIFIER:i {: RESULT = i; :}
+				  | STRING_LITERAL:s {: RESULT = "\""+s+"\""; :}
+				  | IF LPAREN body_condition:c RPAREN body_level1:b1a ELSE body_level1:b1b {: RESULT = "(" + c + " ? " + b1a + " : " + b1b + ")"; :}
+				  | func_call_for_func_def:fc {: RESULT = fc; :}
+;
+
+/* Function definition */
+func_def		::= IDENTIFIER:i LPAREN args2:a2 RPAREN LBRACE body_level1:l1 RBRACE {:	RESULT = "\tpublic static String "+i+"( String "+a2+")"+" {\n\t\treturn "+ l1 +";\n\t}\n"; :}
+			  | IDENTIFIER:i LPAREN RPAREN LBRACE body_level1:l1 RBRACE {: RESULT = "\tpublic static String "+i+"() {\n\t\treturn "+ l1 +";\n\t}\n"; :}
+;
+args2			::= args2:a2 COMMA IDENTIFIER:i {: RESULT = a2+" , String "+i; :}
+			  | IDENTIFIER:i {: RESULT = i; :}
+;
+body_level1		::= body_level2:l2 {: RESULT = l2; :}
+			  | REVERSE body_level1:l1 {: RESULT = "new StringBuffer(" + l1 + ").reverse().toString()"; :}
+;
+body_level2		::= body_level3:l3 {: RESULT = l3; :} 
+			  | body_level2:l2 PLUS body_level3:l3 {: RESULT = l2 + "+" + l3; :}
+;
+body_level3		::= IDENTIFIER:i {: RESULT = i; :}
+			  | STRING_LITERAL:s {: RESULT = "\""+s+"\""; :}
+			  | IF LPAREN body_condition:c RPAREN body_level1:b1a ELSE body_level1:b1b {: RESULT = "(" +  c + " ? " + b1a + " : " + b1b + ")"; :}
+			  | func_call_for_func_def:fc {: RESULT = fc; :}
+;
+body_condition		::= body_level1:l1a PREFIX body_level1:l1b {: RESULT = "(" + l1b + ")" +".startsWith("+ l1a +")"; :}
+;

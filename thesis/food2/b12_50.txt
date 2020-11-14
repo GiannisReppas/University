@@ -1,0 +1,270 @@
+Newsgroups: sci.med.nutrition
+From: altar@beaufort.sfu.ca (Ted Wayn Altar)
+Subject: Vitamin B12 and Vegans
+Message-ID: <altar.727054890@sfu.ca>
+Organization: Simon Fraser University, Burnaby, B.C., Canada
+Date: Thu, 14 Jan 1993 23:41:30 GMT
+Lines: 546
+
+>Michael Traub wrote:
+> B12 deficiency is more common in omnivores than in vegans.
+
+>Martin Hulsey replied:
+> Do you have a peer-reviewed reference from a bona fide nutrition 
+> journal that says this?  I have a couple that say quite the opposite.
+
+
+FACTORS THAT AFFECT DIETARY B12 NEEDS
+
+     (1). Meat or other animal products and refined carbohydrates
+          (sugars) when used generously may more than double B12
+          needs.
+
+     (2).  Persons who use drugs, chemical, or beverages which
+          destroy B12 (e.g., tobacco, alcohol, caffeine, etc.)
+
+     (3).  Megadoses of vitamin C may produce B12 deficiency by
+          destroying the cobalamins during transport through the
+          gastrointestinal tract (Hines, 1975).  Quantities more
+          than 1/2 of a gram can destroy 50% to 95% of B12 in
+          the food.
+
+     (4).  Oral contraceptives are used (affects the B12 binders
+          of the blood).
+
+     (5).  egg albumin and egg yolk decreases B12 absorption
+
+     (6) intestinal parasitism (e.g., tapeworms) and explosively
+         growing bacterial floras can effectively compete with
+         the host for the vitamin
+
+Given these factors that do increase need, it is apparent that
+meat eaters do need more B12, but presumably this is adequately
+compensated for by the fact that they consume more dietary B12.
+It is of course possible that the compensation may not be great
+enough.  Rather than only speculate, however, upon a
+"theoretical" deficiency, it would be best to have in hand some
+actual actuarial data documenting from large samples the relative
+rates of B12 deficiency disease among omnivores as compared to
+vegans.  So far, I've not seen any such actuarial data compiled.
+But this is understandable when we keep in mind that B12
+deficiency is actually rare and of the cases occurring 95% of
+those cases are not due to a simple dietary deficiency but rather
+to physiological absorption/utilization problems.
+
+
+B12 DEFICIENCY AMONG VEGAN INFANTS AND CHILDREN
+
+There are, however, amply studies (see Chanarin et al., 1985;
+Dagnelie et al, 1989a; Dagnelie, 1989b) upon some groups of
+vegans whose young  children and infants are documented to show
+an higher than expected incidence of the signs and symptoms of
+B12 deficiency (see references below).  This concern for the
+children of some fad vegetarians that should be seriously noted.
+There is enough evidence (see references below) to here warrant
+concern that some vegan groups do incur a risk of B12 deficiency
+among their young children.  In particular, vegetarian groups
+prone to certain "fad" vegetarianism like that of macrobiotic or
+crudivore diets, seem to sometimes (again, not consistently) have
+a higher incidence of B12 deficiencies among their young
+children.
+
+RECOMMENDED AMOUNTS OF B12
+
+times greater than our actual requirement).
+
+Absorption of the vitamin also decreases with increased intake.
+At low levels of intake the mean absorption is 70% (even higher
+for people with low serum levels of B12), but at high intake
+levels the absorption rate drops to about 16%.
+
+The fact of the matter is that you need very little and your body
+can store the stuff for 3 to 5 years.  Hence, you simply don't
+need to consume B12 every day.  Another point maybe to keep in
+mind is that researchers really don't know how much low levels of
+B12 is in our foodstuffs since their is not yet a sensitive
+enough  assay for trace amounts of B12.
+
+The main rout of loss of bodily B12 in the bile, while most of
+the bile is effectively reabsorbed (more than 90%), some is not
+thereby making for a loss of B12 (about .1 microgram/day).
+Because vegans generally eat less fat and no cholesterol, their
+production of bile is less and it is therefore likely that their
+need for B12 replacement would also be less.
+
+
+VEGAN  SOURCES OF B12
+
+It has been reported that B12 is to be found on the roots and
+stems of tomatoes, cabbage, celery, kale, broccoli, and leeks.
+Victor Herbert, however, found that "well washed" plant foods
+contain no B12 except for trace amounts in some rhibozium-
+bacteria-containing root nodules.
+
+yeast, had mean intakes of 15 micrograms or about 660% of US RDA
+for children.  In none of the above groups were any clinical
+signs of deficiency found.
+
+     ". . . vegetarians appear to "undergo physiological
+     adaptation enabling them to make somewhat better utilization
+     of iron than would be expected from iron bioavailability
+     studies involving the feeding of vegetarian diets to
+     omnivores or involving the testing of particular components
+     characteristic of vegetarian diets with omnivore subjects."
+          (from Kies & McEndree "Vegetarianism and the
+           bioavailability of iron" in Kies (ed.) NUTRITIONAL
+           BIOAVAILABILITY OF IRON, 1982).
+
+ARE ADULT VEGANS AT A GREATER RISK OF B12 DEFICIENCY?
+
+of an omnivorous control group, hematologic evidence of vitamin
+B12 deficiency is not present.
+
+As Gill Langely reports:
+
+    levels of the vitamin, while VEGAN MACROBIOTICS OR SMOKERS
+    MAY BE PREDISPOSED TO B12 DEFICIENCY.
+
+    of haemoglobin in the blood.
+
+    food fortified with the vitamin, and those who did had higher
+    amounts in their blood.  THE SERUM LEVELS OF THREE SUBJECTS
+    WHO HAD BEEN VEGAN FOR 6-13 YEARS (LONG ENOUGH THEORETICALLY
+    TO EXHAUST LIVER STORES OF B12) WITH NO OBVIOUS DIETARY
+    SOURCE OF B12 WERE ALSO ADEQUATE, at 120-230pg/ml.  All the
+    vegans were healthy, none showed symptoms of B12 deficiency
+    and all had normal haemoglobin values.  The same report lists
+    other surveys of vegans which have failed to show symptoms of
+    dietary deficiency of B12.  [emphasis his]
+
+
+Of course, people will cite some case studies of some unfortunate
+vegans but such case studies are limited in that we don't have a
+proper comparison with non-vegans and by now it should be
+apparent that many other causes besides dietary deficiency can be
+at fault.  If one looks at these case studies closely, the
+individuals are often reported as having other deficiencies
+thereby undermining the very point that such cases might thought
+to have illustrated in the first place.
+
+What is interesting is that B12 is so extremely rare that even
+single case studies get published, but the generalizability of
+such case-studies to the general population of vegans is not to
+automatically be undertaken.  More evidence than this is needed,
+especially when the confound of physiological
+aborption/utilization problems are often not properly ruled out
+in these case studies.
+
+
+CAUSE FOR VEGAN PANIC?
+
+Let it again be said, however, that B12 deficiency is "rare"
+among vegans and that over 95% of deficiency problems are not due
+to a simple intake inadequacy but are due to an malabsorption
+problem.  the development of a serious B12 deficiency is not a
+simple or well understood matter but it is known that absorption
+and conservation of B12 in the body is more important than how
+much is to be found in the diet.
+
+known causes of malabsorption are a lack of intrinsic factor
+(e.g., due to pernicious anemia, destruction of gastric mucosa,
+etc.), removal or disease of the second portion of the ileum,
+competition for B12 by microorganisms or intestinal parasites,
+toxic substances, etc.
+
+beside malabsorption, there are also possible problems (see
+herbert, 1973) in utilization (e.g., enzyme deficiencies, liver
+or kidney disease, etc), increase loss (e.g., renal disease) or
+for an increase requirement (e.g., hyperthyroidism, lactose
+intolerance).
+
+still, if one has an absorption, loss, or increase need problem,
+then presumably when little B12 is available in the diet then
+still less is going to be assimilated.  now, what can vegans do
+to prevent a B12 deficiency?
+
+
+
+HOW VEGANS MIGHT INCREASE THEIR B12 INTAKES
+
+Since B12 is predominantly produced by bacteria (no animal
+produces its own), then foods grown in soils where the bacteria
+flora is rich would presumable have more B12 on their surface.
+Hence, organically grown foods will probably be richer in B12.
+
+TAKING SUPPLEMENTS.
+
+For healthy adult vegans I do think we should be careful about
+recommending routine B12 supplements.  Even though complete
+absorption is not likely, the dosages are probably still too high
+(1200 mcg).  There is some case studies and experimental evidence
+that an excessive B12 consumption encourages cell division in
+general and certain tumor cells in particular (bergevin et al.,
+1976; chauvergne, 1970).
+
+Non-smoking, healthy adult vegans who eat sensibly, are not on
+medications (e.g., antibiotics) and who do not daily drink
+alcohol probably do not need to take supplements.  If such vegans
+are going to take supplements, then they should probably not take
+them on regular basis since the doses are too high.
+
+all investigators reporting on vegans report them as being above
+average in health and more active.
+
+
+FINAL WORD:
+
+
+REFERENCES 1: General
+
+Abdulla et al. (1981).  Nutrient intake and health status of
+    vegans Chemical analyses of diets using the duplicate portion
+    sampling technique.  AM. J. CLIN. NUTR., 34:2464-77.
+
+Herbert, V. (1962).  Harmful B12 breakdown products in
+    multivitamins?  MEDICAL WORLD NEWS, (Sept. 28):12-13.
+
+Herbert, V. (1973).  The five possible causes of all nutrient
+    deficiency: Illustrated by deficiencies of vitamin B12 and
+    folic acid.  AMER. J. OF CLIN. NUTRITION, 26:77.
+
+ Herbert, V. (1988).  Vitamin B12: plant sources, requirements,
+    and assay.  AMER. J. OF CLINICAL NUTRITION, 48(3):852.
+
+Hines, J. (1975).  Ascorbic acid and vitamin B12 deficiency.  J.
+    OF AMER. MED. ASSOC., 234(1):24.
+
+Thrash & Thrash (1982).  NUTRITION FOR VEGETARIANS, 1982.
+
+
+REFERENCES 2:  Group comparison studies involving adult
+vegetarians.
+
+Bar-Sella et al. (1990).   Vitamin B12 and folate levels in long-
+    term vegans.  ISRAEL JOURNAL OF MEDICAL SCIENCES. 26(6):309
+
+    NUTRITION, 56(3):555.
+
+Rana et al. (1986).  Taurine concentratins in the diet, plasm,
+    urine and breast milk of vegans compared with omnivores.  BR.
+    J. NUTR., 56:17-27.
+
+Sanders et al. (1977).  Haematological studies on vegans.  BRIT.
+    J. OF NUTR., 40:9
+
+Sanders, T. (1978).  The health and nutritional status of vegans.
+    PLANT. FDS. MAN, 2:181-93.
+
+Sanders & Purves (1981).  An anthropometric and dietary
+    assessment of nutritional status of vegan preschoold
+    children. J. HUM. NUTR., 35:349-57.
+
+Sanders et al. (1987).  Blood pressure, plasma renin activity and
+    aldosterone concentration in vegans and omnivore controls.
+    Hum. Nutr.: Appl. Nutr., 41A:204-11
+
+Smith (1962).  Veganism, a clincal survey with observations of
+    vitamin B12 metabolism.  THE BRIT. MED. J, 1(June 16):1655.
+
+Wokes et al. (1955).  "Human dietary deficiency of vitamin B12.
+    THE AMER. J. OF CLIN. NUTR., 3(5):375

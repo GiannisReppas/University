@@ -1,0 +1,1 @@
+bool initialize_hash_tables( bucket ***senderHashTable, bucket ***recieverHashTable, myBucket ***myHashTable, treeBucket ***treeHashTable, int senderHashTableNumberOfEntries, int recieverHashTableNumberOfEntries);

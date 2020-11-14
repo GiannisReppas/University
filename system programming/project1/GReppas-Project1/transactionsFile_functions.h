@@ -1,0 +1,2 @@
+bool put_transactions_in_sender_and_reciever_hash_table( bucket **senderHashTable, bucket **recieverHashTable, myBucket **myHashTable, treeBucket **treeHashTable, int senderHashTableNumberOfEntries, int recieverHashTableNumberOfEntries, FILE *tF_fp, int bucketSize, char **lastDateTime, int *lastTransactionId);
+bool put_new_nodes_in_tree( bool check, treeNode *currentTreeNode, char *sender, char *reciever, int *moneyForSender, int *moneyForReciever, listNode *pointerForTransaction, bool *dup);

@@ -1,0 +1,12 @@
+bool menu( char **lastDateTime, int *lastTransactionId, bucket **senderHashTable, bucket **recieverHashTable, myBucket **myHashTable, treeBucket **treeHashTable, int senderHashTableNumberOfEntries, int recieverHashTableNumberOfEntries);
+bool question1( int transactionId, char *sender, char *reciever, char *ammount, char *date, char *time, bucket **senderHashTable, bucket **recieverHashTable, myBucket **myHashTable, treeBucket **treeHashTable, int senderHashTableNumberOfEntries, int recieverHashTableNumberOfEntries);
+bool question4withoutArguements( char *name, bucket **recieverHashTable, int recieverHashTableNumberOfEntries);
+bool question4withArguements( char *name, bucket **recieverHashTable, int recieverHashTableNumberOfEntries, char *time1, char *date1, char *time2, char *date2);
+bool question5withoutArguements( char *name, bucket **senderHashTable, int senderHashTableNumberOfEntries);
+bool question5withArguements( char *name, bucket **senderHashTable, int senderHashTableNumberOfEntries, char *time1, char *date1, char *time2, char *date2);
+bool question6( char *name, myBucket **myHashTable, int senderHashTableNumberOfEntries, int recieverHashTableNumberOfEntries);
+void question7counter( treeNode *current, int *counter);
+void question7unspent( treeNode *current, int *unspent);
+bool question7( char *bCId, treeBucket **treeHashTable, int senderHashTableNumberOfEntries, int recieverHashTableNumberOfEntries);
+bool question8( char *bCId, treeBucket **treeHashTable, int senderHashTableNumberOfEntries, int recieverHashTableNumberOfEntries);
+void question8recursive( treeNode *current, char *sender);

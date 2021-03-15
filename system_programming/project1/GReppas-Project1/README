@@ -1,0 +1,84 @@
+Name: Giannis Reppas
+A.M.: 1115201500137
+
+Comilation:
+make
+
+Delete binary files that where created after compilation:
+make clean 
+
+Data structures:
+
+We use 4 main data structures, the 2 of them are the sender and the receiver hash table. Both of them are built the same way. In each of their buckets, the have an array of walletIds which is being created dynamically. Once the bucket hash no more space for another walletId (remaining spce in bucket < sizeof(walletId)), an overflow bucket is being created just like a linked list. The other 2 hash tables are the hash table for the wallet of each user(myHash table) and the hash table for the history of each bitcoin. For the three first hash tables the walletIds are being hashed but for the last hash table ( treeHash table), the bitCoinId is being hashed during the insertion. The structure of the last 2 hash tables ( myHash table and treeHash table) is slightly different from the 2 first hash tables. For myHash table and for treeHash table, there is no a dynbamic array inside each bucket. Each bucket is filled with only one walletId array or bitCoinId. The number of buckets for the last 2 hash tables is always (numberOfBucketsForSenderHashTable + numberOfBucketsForReceiverHashTable)/2. To create all 4 hash tables, we use an array of pointers and all pointers.
+Besides those 4 hash tables, we also have to variables that are being used for every insertion on every hash table and they are the date and time of the latest transaction and also the transactionId of the latest transaction. Each transaction must have a newer date and a bigger transactionId than the latest transactions in order to be inserted. These two variables could also be global variables.
+
+main.c:
+
+At first, main function takes the data the user gave from the command line, using take_info_from_command_line().
+After that, main function initializes the 4 hash tables and the 2 variables for the transactions, using function initialize_hash_tables().
+After that, it calls functions create_my_structure_and_tree_structure_and_put_names_in_hash_tables(), which reads data from bitCoinBalancesFile and puts them in the hash tables.
+After that, the ame job is done with put_transactions_in_sender_and_reciever_hash_tables() function for transactionsFile.
+After the last 2 functions, all the data structures needed have been fully created, so we call function menu(), in order for the user to type the commands he wants. If someone wants to, there is also the function printAll() ( I have put it in comments because it is not a function I have asked to write) which prints all the data of the hash tables, so the user or the programmer can understand better the way the data structures work. PrintAll() does not print bitCoinTrees with no more nodes than the root node.
+In the end, the function for memory deallocation ( free_memory()) is being called and the programm is being terminated.
+
+take_info_from_command_line.c:
+
+This function takes the data the user gave from command line and puts them in variables. It checks if the arguements are correct and if they are not, then the programm is being terminated.  The areguements should not be given with a specific sequence, but the flag for each arguement must always go before it. For example, bitCoinBalancesFile can be given after the value of the bitcoin, however the value of the bitCoin must have -v for flag and bitCoinBalancesFile must have -a for flag.
+
+itoa_plus_nod.c:
+
+The file has two functions, the first one turns an integer into a string and the second one returns the number of digits of a given integer. The reason i wrote itoa is because this function is not veing supported by c, despite atoi() does. The way the integer is turned into a string is by taking each of its digits from end to start, dividing the number each time by 10. After that, we reverse the string and take the number we want.
+
+initialize_hash_tables.c:
+
+This function initializes the hash tables, based on the values the user gave for the number of entries of each hash table.
+
+hash_function.c:
+
+This is the hash function. This is actually universal hashing for integers. a = 7, b = 8 and the 1000th prime number is 7919. For strings, we dont use universal hashing for strings, instead, we just pass as argument its first character.
+
+bitCoinBalancesFile_functions.c:
+
+This file contains all functions that take data from bitCoinBalancesFile and put them in hash tables.
+The basic function is create_my_structure_and_tree_structure_and_put_names_in_hash_tables(). This function reads bitCoinBalancesFile word by word. In case continous white spaces or different kind of error is spotted, the function prints an error message and the programm is terminated. If the word is a name, then it is placed in sender and receiver hash table and wallet( myHash table). If the word is a number, then the bitCoinId is inserted in treeHash table and the root of the tree of the bitcoin contains the starting value of a bitcoin and the last name read. The bitCoinId is also inserted in the wallet of the user with name the last name read in this function.
+
+transactionsFile_functions.c:
+
+The file contains all functions that take data from transactionsFile and put them in hash tables.
+The basic function is put_transactions_in_sender_and_reciever_hash_table(). The way the data is read and putted in hash tables id the same as in create_my_structure_and_tree_structure_and_put_names_in_hash_tables(). Each transaction is being inserted first in sender and then in receiver hash table. Before the data of the transaction is inserted in sender and receiver hash table, it is checked is the sender has enough money in its wallet to make the transaction. If not, then the transaction is being ignored. If the sender has enough money, then latestDateTime and lastTransactionId are being updated. In order to avoid data duplication, each listnode for everywalletid does not contain the name of the sender in sender hash table and the name of the receiver in receiver hash table, because it already exists in the bucket.
+In the same function, except the insertion of transaction data in sender and receiver hash table, the transaction is being executed, which means that the money and the bitCoinIds from sender's wallet, are being transported to the receiver's wallet.
+In the end, for each transaction and for each bitCoin that took part in the transaction, its tree in tree hash table is being updated, using function put_new_nodes_in_tree(). The update is done by searching all nodes of the tree and one we find the leaf we want, then we do the insertion. In case the transaction needs more than one nodes to be updated, then the function continues to search every node of the tree, otherwise is returns.
+
+functions_for_error_checking.c:
+
+This file contains some functions that return true or false, based on the data given.
+Function check_if_transaction_is_valid() takes all the words of a transaction and if one or more are incorrect, for example the date is older than the latest one, it returns false. Otherwise, it returns true.
+Function check_if_name_is_valid() returns false if the given name already exists in wallet( myHashTable).
+Function check_if_bitCoin_is_valid() returns false if the given bitCoinId already exists in treeHash table.
+
+free_memory.c:
+
+This file contains all functions that free the allocated memory for the hash tables. For every hash table, function free_bucket is called which frees all nodes of a bucket list.
+After that, the hash tables are also being freed.
+
+menu.c:
+
+File menu.c contains all functions that take the command the user gives from the command line and execute them.
+Function menu() prints the available commands that the user can give and based in the input calls the right function ( question1() - question8() ). We use fgets in a while loop in order to take all the input the user gives from the command line without using an array that has been declarated statically. Once we have the input the user gave in string final, we use strtok continously in order to break the string and take all its words. If the input the user gave is not correct, we print an error message and print the menu again.
+
+question1() is a function that is used to execute command /requestTransaction. It can be called with two ways: 1) if the user doesn't give a date and time 2) if the user gives a date and time. Before the function is used, we check if all the arguements the user gave are correct, using function check_if_transaction_is_valid(). question1(), follows actually the same steps with the steps we took in function put_transactions_in_sender_and_receiver_hash_table(). It's actually a part of the main while loop. First, we check if there are enough money in the wallet of the sender, in order for the transaction to be done. Then, we insert all the info of the transaction in sender and receiver hash table. After that, we do the steps we did in order to move the money from sender's wallet to receiver's wallet. In the end, for every bitCoin that has been removed from sender's wallet, we update its tree, for the new transaction.
+
+command /requestTransactions is actually a command that calls question1() multiple times. First, we check in function menu the structure of /requestTransactions command that was given by the user. If the command has only one more arguement, then it means that the input the user gave was to execute the command for an inputfile. In that case, we read the file line by line in function menu() and calling for every line function question1(), the same way we called it for command /requestTransaction if the command was called by the user with more than 2 arguements, then is means that the user wants to give a large series of transactions. In that case, we read input from the user multiple times, until the user types /endOfRequestTransactions and returns to the menu. If the user does not type this command, we keep reading every line the user gives and calling question1(), if the input is correct, otherwise we print an error message and read the input again.
+
+question4withArguements() is a function that is used to execute command /findEarnings in case the user gave two specific dates and times. First, we go to the transaction list of the receiver. Then, for every transaction, we check if its date and time is between the dates and times the user gave. If it is, we print the transaction and add the money of the transaction to the total amount. In the end, we print the total amount.
+question4withoutArguements() is a function that is used to execute command /findEarnings in case the user didnt give two specific dates and times. First, we go to the transaction list of the receiver. Then, we for every transaction we print its info and add the money of the transactio to the total amount. In the end, we print the total amount.
+
+question5withArguements() and question5withoutArguements() are functions that are used to execute command /findPayments and follow the same steps with functions for the command /findEarnings but this time we search the transaction list of the sender and not the one of the receiver.
+
+question6() is a simple function and is used for the command /walletStatus. We just visit the user's wallet (myHashTable) and return the total amount of money the user has.
+
+question7() is a function that is used for the command /bitCoinStatus. The command /bitCoinStatus needs to count the number of transactions for a bitCoin and the unspent amount of money for a bitcoin, in the transactions it took place. So, we go to the bitcoin tree in the hash table and call these two functions.
+question7unspent() returns the unspent amount of the money of a bitcoin. In a bitCoin tree, the rightest node will always be the node that contains the money the starting owner of the bitcoin has never spent, unless the user never gave them all to another user. So, we go to the rightest node of the tree and if the rightest node of the tree does not have any child, then it means that the money of this node is the unspent amount of the bitcoin. Eventhough, if the node has a left node, then is means that there was a transaction from the rightestnode's userId to its left child's userId, so there is not an unspent smount of money for the bitCoin. In this case, the unspent amount is zero.
+question7counter() returns the number of the transactions that the bitcoin took place. Each transaction node in sender's hash table is being pointed by all the bitCoin tree nodes that "express" it. So, in order to count the number of transactions that the bitcoin took place, we have to count the number of the tree nodes that point to a listnode. However, there is a cade when two or more treenodes might be part of the same transaction, because the total amount of the money of a user of a bitcoin might be in 2 different leaf nodes. So, in order to fix this problem, we add an extra variable in the struct of the tree node, called duplicated. In function put_nodes_in_tree(), in case we create a new left node twice in a transaction, we change the dplicated value of the node from true to false, bacause it will refer to a transaction an other tree node already nodes. So, when we count the treenodes of the tree that point to a transaction, we also check if the duplicated value of the treenode is true, otherwise we ignore the treenode.
+
+question8()
